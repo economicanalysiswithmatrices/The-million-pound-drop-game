@@ -68,16 +68,16 @@ D={'D:7', 'D:Sydney', 'D:9.71 seconds', 'D:George Clooney', 'D:1947', 'D:Oxford 
 Ans={'B','C','A','D','A','B','A','B','B','C','A','A','B','A','D','C','D','A','B','C','D','B','C','D','B'};
 R='R';%round
 
-textcell =strcat(A,',',B,',',C,',',D,',',Ans);
+textcell =strcat(Q,',',A,',',B,',',C,',',D,',',Ans);
 n = length(textcell);
 O =strsplit( textcell{randi(n)},',');
 
-set(handles.Q_bar,'String',Q);%displays Q in Q_bar
+set(handles.Q_bar,'String',O(1,1));%displays Q in Q_bar
 set(handles.rounds,'String',R);
-set(handles.OptionA,'String',O(1,1));
-set(handles.OptionB,'String',O(1,2));
-set(handles.OptionC,'String',O(1,3));
-set(handles.OptionD,'String',O(1,4));
+set(handles.OptionA,'String',O(1,2));
+set(handles.OptionB,'String',O(1,3));
+set(handles.OptionC,'String',O(1,4));
+set(handles.OptionD,'String',O(1,5));
 
 % Update handles structure
 guidata(hObject, handles);
