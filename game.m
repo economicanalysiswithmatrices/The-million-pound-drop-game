@@ -22,7 +22,7 @@ function varargout = game(varargin)
 
 % Edit the above text to modify the response to help game
 
-% Last Modified by GUIDE v2.5 11-Jan-2019 21:29:07
+% Last Modified by GUIDE v2.5 11-Jan-2019 22:05:51
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -72,7 +72,7 @@ varargout{1} = handles.output;
 
 global questions;
 
-Q={'How many Wimbledon titles has Roger Federer won?', 'What is the capital city of Australia?', 'What is the fastest time taken to run 100m?', 'According to forbes who was the highest paid actor as of 2018?', 'In what year did World War II end?', 'On a standard Monopoly board, what is the highest valued square?', 'How many cards in a standard deck of playing cards?', 'In what year did Elvis Presley die?', 'Who scored the goal to win Manchester City the Premier League in 2012?', 'Who is the founder of Facebook?', 'Who is Kanye West married to?', 'Who scored the last ever goal at Upton Park for West Ham?', 'In the show Friends which character drinks the most cups of coffee?', 'What is the eighth planet from the sun?', 'Who plays the character Howard Wolowitz in The Big Bang Theory?', 'In which year did the Great Depression start?', 'Who was the first prime minister of the United Kingdom?', 'How many golden tickets were there in Charlie and the Chocolate Factory?', 'How many Marvel universe film cameos did Stan Lee make?', 'Which of these Disney films were released earliest?', 'How many medals did Great Britain win at the 2012 Summer Olympics?', 'Which of these twins starred in the show The Suite Life of Zack and Cody?', 'Which of these elements have an Atomic number of 1?', 'What is the home state of Tony Soprano in the show The Sopranos?', 'Who won the first ever edition of Britains Got Talent?'};
+Q={'How many Wimbledon titles has Roger Federer won?', 'What is the capital city of Australia?', 'What is the fastest time taken to run 100m?', 'According to forbes who was the highest paid actor as of 2018?', 'In what year did World War II end?', 'On a standard Monopoly board what is the highest valued square?', 'How many cards in a standard deck of playing cards?', 'In what year did Elvis Presley die?', 'Who scored the goal to win Manchester City the Premier League in 2012?', 'Who is the founder of Facebook?', 'Who is Kanye West married to?', 'Who scored the last ever goal at Upton Park for West Ham?', 'In the show Friends which character drinks the most cups of coffee?', 'What is the eighth planet from the sun?', 'Who plays the character Howard Wolowitz in The Big Bang Theory?', 'In which year did the Great Depression start?', 'Who was the first prime minister of the United Kingdom?', 'How many golden tickets were there in Charlie and the Chocolate Factory?', 'How many Marvel universe film cameos did Stan Lee make?', 'Which of these Disney films were released earliest?', 'How many medals did Great Britain win at the 2012 Summer Olympics?', 'Which of these twins starred in the show The Suite Life of Zack and Cody?', 'Which of these elements have an Atomic number of 1?', 'What is the home state of Tony Soprano in the show The Sopranos?', 'Who won the first ever edition of Britains Got Talent?'};
 %cell for questions
 A={'A:11', 'A:Perth', 'A:9.58 seconds', 'A:Dwayne Johnson', 'A:1945', 'A:Park Lane', 'A:52', 'A:1979', 'A:Edin Dzeko', 'A:Bill Gates', 'A:Kim Kardashian', 'A:Winston Reid', 'A:Ross', 'A:Neptune', 'A:Kevin Sussman ', 'A:1943', 'A:Henry Palham', 'A:5', 'A:22', 'A:Aladdin', 'A:72', 'A:Dolan twins', 'A:Gold', 'A:New York', 'A:George Sampson'};
 %cell for option A
@@ -104,7 +104,6 @@ set(handles.OptionA,'String',O(1,2));
 set(handles.OptionB,'String',O(1,3));
 set(handles.OptionC,'String',O(1,4));
 set(handles.OptionD,'String',O(1,5));
-set(handles.Balance,'String',num2str(balance));
 set(handles.over, 'visible', 'off');
 
 
@@ -372,12 +371,6 @@ function Winnings_CreateFcn(hObject, eventdata, handles)
 % handles    empty - handles not created until after all CreateFcns called
 
 
-% --- Executes during object creation, after setting all properties.
-function Balance_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to Balance (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
 
 % --- Executes on button press in next.
 function next_Callback(hObject, eventdata, handles)
@@ -401,3 +394,11 @@ function over_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to over (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
+
+
+% --- Executes on button press in back.
+function back_Callback(hObject, eventdata, handles)
+% hObject    handle to back (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+start;
