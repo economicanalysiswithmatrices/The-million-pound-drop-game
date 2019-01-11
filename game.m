@@ -69,12 +69,6 @@ function varargout = game_OutputFcn(hObject, eventdata, handles)
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 
-
-global question1;
-global question2;
-global question3;
-global question4;
-
 ListofquestionsMatlab1
 
 Round1questions = {Q1R1,Q2R1,Q3R1,Q4R1,Q5R1,Q6R1,Q7R1,Q8R1,Q9R1,Q10R1,Q11R1,Q12R1,Q13R1,Q14R1,Q15R1,Q16R1,Q17R1,Q18R1,Q19R1,Q20R1,Q21R1,Q22R1,Q23R1,Q24R1,Q25R1};
@@ -87,51 +81,12 @@ C1=chosenquestionR1(1,4);
 D1=chosenquestionR1(1,5);
 Ans1=chosenquestionR1(1,6);
 
-question1 = {Q1,A1,B1,C1,D1,Ans1};
-
-Round2questions = {Q1R2,Q2R2,Q3R2,Q4R2,Q5R2,Q6R2,Q7R2,Q8R2,Q9R2,Q10R2,Q11R2,Q12R2,Q13R2,Q14R2,Q15R2,Q16R2,Q17R2,Q18R2,Q19R2,Q20R2,Q21R2,Q22R2,Q23R2,Q24R2,Q25R2};
-chosenquestionR2 = Round2questions{randi(length(Round2questions))};
-
-Q2=chosenquestionR2(1,1);
-A2=chosenquestionR2(1,2);
-B2=chosenquestionR2(1,3);
-C2=chosenquestionR2(1,4);
-D2=chosenquestionR2(1,5);
-Ans2=chosenquestionR2(1,6);
-
-question2 = {Q2,A2,B2,C2,D2,Ans2};
-
-Round3questions = {Q1R3,Q2R3,Q3R3,Q4R3,Q5R3,Q6R3,Q7R3,Q8R3,Q9R3,Q10R3,Q11R3,Q12R3,Q13R3,Q14R3,Q15R3,Q16R3,Q17R3,Q18R3,Q19R3,Q20R3,Q21R3,Q22R3,Q23R3,Q24R3,Q25R3};
-chosenquestionR3 = Round3questions{randi(length(Round3questions))};
-
-Q3=chosenquestionR3(1,1);
-A3=chosenquestionR3(1,2);
-B3=chosenquestionR3(1,3);
-C3=chosenquestionR3(1,4);
-D3=chosenquestionR3(1,5);
-Ans3=chosenquestionR3(1,6);
-
-question3 = {Q3,A3,B3,C3,D3,Ans3};
-
-Round4questions = {Q1R4,Q2R4,Q3R4,Q4R4,Q5R4,Q6R4,Q7R4,Q8R4,Q9R4,Q10R4,Q11R4,Q12R4,Q13R4,Q14R4,Q15R4,Q16R4,Q17R4,Q18R4,Q19R4,Q20R4,Q21R4,Q22R4,Q23R4,Q24R4,Q25R4};
-chosenquestionR4 = Round4questions{randi(length(Round4questions))};
-
-Q4=chosenquestionR4(1,1);
-A4=chosenquestionR4(1,2);
-B4=chosenquestionR4(1,3);
-C4=chosenquestionR4(1,4);
-D4=chosenquestionR4(1,5);
-Ans4=chosenquestionR4(1,6);
-
-question4 = {Q4,A4,B4,C4,D4,Ans4};
 global winnings;
 winnings = 1000000;
 global answer
+global round
 
 guidata(hObject, handles);
-
-global balance
-balance=winnings;
 
 answer = Ans1;
 set(handles.Q_bar,'String',Q1);%displays Q in Q_bar
@@ -141,6 +96,7 @@ set(handles.OptionC,'String',C1);
 set(handles.OptionD,'String',D1);
 set(handles.Winnings,'String',num2str(winnings));
 set(handles.over, 'visible', 'off');
+round = 1
 
 
 % Store bids
@@ -413,6 +369,69 @@ function next_Callback(hObject, eventdata, handles)
 % hObject    handle to next (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+global round
+
+ListofquestionsMatlab1
+
+if round==3
+    Round4questions = {Q1R4,Q2R4,Q3R4,Q4R4,Q5R4,Q6R4,Q7R4,Q8R4,Q9R4,Q10R4,Q11R4,Q12R4,Q13R4,Q14R4,Q15R4,Q16R4,Q17R4,Q18R4,Q19R4,Q20R4,Q21R4,Q22R4,Q23R4,Q24R4,Q25R4};
+    chosenquestionR4 = Round4questions{randi(length(Round4questions))};
+
+    Q4=chosenquestionR4(1,1)
+    A4=chosenquestionR4(1,2);
+    B4=chosenquestionR4(1,3);
+    C4=chosenquestionR4(1,4);
+    D4=chosenquestionR4(1,5);
+    Ans4=chosenquestionR4(1,6);
+    
+    answer = Ans1; 
+    set(handles.Q_bar,'String',Q4);%displays Q in Q_bar 
+    set(handles.OptionA,'String',A4); 
+    set(handles.OptionB,'String',B4); 
+    set(handles.OptionC,'String',C4); 
+    set(handles.OptionD,'String',D4);  
+    set(handles.over, 'visible', 'off'); 
+    
+elseif round==2
+    Round3questions = {Q1R3,Q2R3,Q3R3,Q4R3,Q5R3,Q6R3,Q7R3,Q8R3,Q9R3,Q10R3,Q11R3,Q12R3,Q13R3,Q14R3,Q15R3,Q16R3,Q17R3,Q18R3,Q19R3,Q20R3,Q21R3,Q22R3,Q23R3,Q24R3,Q25R3};
+    chosenquestionR3 = Round3questions{randi(length(Round3questions))};
+
+    Q3=chosenquestionR3(1,1);
+    A3=chosenquestionR3(1,2);
+    B3=chosenquestionR3(1,3);
+    C3=chosenquestionR3(1,4);
+    D3=chosenquestionR3(1,5);
+    Ans3=chosenquestionR3(1,6);
+    
+    answer = Ans3; 
+    set(handles.Q_bar,'String',Q3);%displays Q in Q_bar 
+    set(handles.OptionA,'String',A3); 
+    set(handles.OptionB,'String',B3); 
+    set(handles.OptionC,'String',C3); 
+    set(handles.OptionD,'String',D3); 
+    set(handles.over, 'visible', 'off');
+    
+elseif round==1
+    Round2questions = {Q1R2,Q2R2,Q3R2,Q4R2,Q5R2,Q6R2,Q7R2,Q8R2,Q9R2,Q10R2,Q11R2,Q12R2,Q13R2,Q14R2,Q15R2,Q16R2,Q17R2,Q18R2,Q19R2,Q20R2,Q21R2,Q22R2,Q23R2,Q24R2,Q25R2};
+    chosenquestionR2 = Round2questions{randi(length(Round2questions))};
+
+    Q2=chosenquestionR2(1,1);
+    A2=chosenquestionR2(1,2);
+    B2=chosenquestionR2(1,3);
+    C2=chosenquestionR2(1,4);
+    D2=chosenquestionR2(1,5);
+    Ans2=chosenquestionR2(1,6);
+    
+    answer = Ans2; 
+    set(handles.Q_bar,'String',Q2);%displays Q in Q_bar 
+    set(handles.OptionA,'String',A2); 
+    set(handles.OptionB,'String',B2); 
+    set(handles.OptionC,'String',C2); 
+    set(handles.OptionD,'String',D2); 
+    set(handles.over, 'visible', 'off');
+    
+end
+
 game;
 set(handles.bidA,'String','');
 set(handles.bidB,'String','');
