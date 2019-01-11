@@ -95,7 +95,6 @@ set(handles.OptionB,'String',B1);
 set(handles.OptionC,'String',C1);
 set(handles.OptionD,'String',D1);
 set(handles.Winnings,'String',num2str(winnings));
-set(handles.over, 'visible', 'off');
 round = 1
 set(handles.round,'String',num2str(round));
 
@@ -235,9 +234,6 @@ if isempty(B4)
     B4 = 0;
 end
 guidata(hObject,handles);
-if winnings==0
-    set(handles.over, 'visible', 'on');
-end
 global answer;
 if strcmp(answer, 'A')    
     winnings=B1;
@@ -251,6 +247,7 @@ elseif strcmp(answer, 'C')
 elseif strcmp(answer, 'D')
     winnings=B4
    
+end
 set(handles.Winnings,'String',num2str(winnings));
 set(handles.bidA,'String',B1);
 set(handles.bidB,'String',B2);
@@ -258,8 +255,6 @@ set(handles.bidC,'String',B3);
 set(handles.bidD,'String',B4);
 
 guidata(hObject,handles);
-
-end
 
 if winnings<=0
     endscreen;
@@ -393,8 +388,7 @@ elseif round==3
     set(handles.OptionA,'String',A4); 
     set(handles.OptionB,'String',B4); 
     set(handles.OptionC,'String',C4); 
-    set(handles.OptionD,'String',D4);  
-    set(handles.over, 'visible', 'off');
+    set(handles.OptionD,'String',D4);
     round = 4
     set(handles.round,'String',num2str(round));
     
@@ -415,7 +409,6 @@ elseif round==2
     set(handles.OptionB,'String',B3); 
     set(handles.OptionC,'String',C3); 
     set(handles.OptionD,'String',D3); 
-    set(handles.over, 'visible', 'off');
     round = 3
     set(handles.round,'String',num2str(round));
     
@@ -436,7 +429,6 @@ elseif round==1
     set(handles.OptionB,'String',B2); 
     set(handles.OptionC,'String',C2); 
     set(handles.OptionD,'String',D2); 
-    set(handles.over, 'visible', 'off');
     round = 2
     set(handles.round,'String',num2str(round));
     
