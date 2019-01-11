@@ -22,7 +22,7 @@ function varargout = game(varargin)
 
 % Edit the above text to modify the response to help game
 
-% Last Modified by GUIDE v2.5 11-Jan-2019 22:05:51
+% Last Modified by GUIDE v2.5 11-Jan-2019 14:27:32
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -70,22 +70,60 @@ function varargout = game_OutputFcn(hObject, eventdata, handles)
 varargout{1} = handles.output;
 
 
-global questions;
+global question1;
+global question2;
+global question3;
+global question4;
 
-Q={'How many Wimbledon titles has Roger Federer won?', 'What is the capital city of Australia?', 'What is the fastest time taken to run 100m?', 'According to forbes who was the highest paid actor as of 2018?', 'In what year did World War II end?', 'On a standard Monopoly board what is the highest valued square?', 'How many cards in a standard deck of playing cards?', 'In what year did Elvis Presley die?', 'Who scored the goal to win Manchester City the Premier League in 2012?', 'Who is the founder of Facebook?', 'Who is Kanye West married to?', 'Who scored the last ever goal at Upton Park for West Ham?', 'In the show Friends which character drinks the most cups of coffee?', 'What is the eighth planet from the sun?', 'Who plays the character Howard Wolowitz in The Big Bang Theory?', 'In which year did the Great Depression start?', 'Who was the first prime minister of the United Kingdom?', 'How many golden tickets were there in Charlie and the Chocolate Factory?', 'How many Marvel universe film cameos did Stan Lee make?', 'Which of these Disney films were released earliest?', 'How many medals did Great Britain win at the 2012 Summer Olympics?', 'Which of these twins starred in the show The Suite Life of Zack and Cody?', 'Which of these elements have an Atomic number of 1?', 'What is the home state of Tony Soprano in the show The Sopranos?', 'Who won the first ever edition of Britains Got Talent?'};
-%cell for questions
-A={'A:11', 'A:Perth', 'A:9.58 seconds', 'A:Dwayne Johnson', 'A:1945', 'A:Park Lane', 'A:52', 'A:1979', 'A:Edin Dzeko', 'A:Bill Gates', 'A:Kim Kardashian', 'A:Winston Reid', 'A:Ross', 'A:Neptune', 'A:Kevin Sussman ', 'A:1943', 'A:Henry Palham', 'A:5', 'A:22', 'A:Aladdin', 'A:72', 'A:Dolan twins', 'A:Gold', 'A:New York', 'A:George Sampson'};
-%cell for option A
-B={'B:8', 'B:Brisbane', 'B:9.69 seconds', 'B:Salman Khan', 'B:1943', 'B:Mayfair', 'B:48', 'B:1977', 'B:Sergio Aguero', 'B:Elon Musk', 'B:Khloe Kardashian', 'B:Dimitri Payet', 'B:Pheobe', 'B:Jupiter', 'B:Jim Parsons', 'B:1970', 'B:Margeret Thatcher', 'B:6', 'B:57', 'B:Tarzan', 'B:55', 'B:Spouse twins', 'B:Platinum', 'B:Ohio', 'B:Paul Potts'};
-%cell for option B
-C={'C:9', 'C:Canberra', 'C:9.55 seconds', 'C:Robert Downey Jr', 'C:1939', 'C:Trafalgar Square', 'C:50', 'C:1969', 'C:David Silva', 'C:Mark Zuckerburg', 'C:Kylie Jenner', 'C:Mark Noble', 'C:Monica', 'C:Saturn', 'C:Kunal Nayyar', 'C:1929', 'C:Spencer Compton', 'C:7', 'C:39', 'C:Sleeping Beauty', 'C:42', 'C:Olsen twins', 'C:Hydrogen', 'C:Illinois', 'C:Damon Scott'};
-%cell for option c
-D={'D:7', 'D:Sydney', 'D:9.71 seconds', 'D:George Clooney', 'D:1947', 'D:Oxford Street', 'D:54', 'D:1974', 'D:Carlos Tevez', 'D:Hugh Heffner', 'D:Kourtney Kardashian', 'D:Manuel Lanzini', 'D:Racheal', 'D:Mars', 'D:Simon Helberg', 'D:2007', 'D:Robert Wadpole', 'D:8', 'D:73', 'D:Mulan', 'D:65', 'D:Bella twins', 'D:Helium', 'D:New Jersey', 'D:Diversity'};
-%cell for option D
-Ans={'B','C','A','D','A','B','A','B','B','C','A','A','B','A','D','C','D','A','B','C','D','B','C','D','B'};
+ListofquestionsMatlab1
 
+Round1questions = {Q1R1,Q2R1,Q3R1,Q4R1,Q5R1,Q6R1,Q7R1,Q8R1,Q9R1,Q10R1,Q11R1,Q12R1,Q13R1,Q14R1,Q15R1,Q16R1,Q17R1,Q18R1,Q19R1,Q20R1,Q21R1,Q22R1,Q23R1,Q24R1,Q25R1};
+chosenquestionR1 = Round1questions{randi(length(Round1questions))};
 
-questions = {Q,A,B,C,D,Ans};
+Q1=chosenquestionR1(1,1);
+A1=chosenquestionR1(1,2);
+B1=chosenquestionR1(1,3);
+C1=chosenquestionR1(1,4);
+D1=chosenquestionR1(1,5);
+Ans1=chosenquestionR1(1,6);
+
+question1 = {Q1,A1,B1,C1,D1,Ans1};
+
+Round2questions = {Q1R2,Q2R2,Q3R2,Q4R2,Q5R2,Q6R2,Q7R2,Q8R2,Q9R2,Q10R2,Q11R2,Q12R2,Q13R2,Q14R2,Q15R2,Q16R2,Q17R2,Q18R2,Q19R2,Q20R2,Q21R2,Q22R2,Q23R2,Q24R2,Q25R2};
+chosenquestionR2 = Round2questions{randi(length(Round2questions))};
+
+Q2=chosenquestionR2(1,1);
+A2=chosenquestionR2(1,2);
+B2=chosenquestionR2(1,3);
+C2=chosenquestionR2(1,4);
+D2=chosenquestionR2(1,5);
+Ans2=chosenquestionR2(1,6);
+
+question2 = {Q2,A2,B2,C2,D2,Ans2};
+
+Round3questions = {Q1R3,Q2R3,Q3R3,Q4R3,Q5R3,Q6R3,Q7R3,Q8R3,Q9R3,Q10R3,Q11R3,Q12R3,Q13R3,Q14R3,Q15R3,Q16R3,Q17R3,Q18R3,Q19R3,Q20R3,Q21R3,Q22R3,Q23R3,Q24R3,Q25R3};
+chosenquestionR3 = Round3questions{randi(length(Round3questions))};
+
+Q3=chosenquestionR3(1,1);
+A3=chosenquestionR3(1,2);
+B3=chosenquestionR3(1,3);
+C3=chosenquestionR3(1,4);
+D3=chosenquestionR3(1,5);
+Ans3=chosenquestionR3(1,6);
+
+question3 = {Q3,A3,B3,C3,D3,Ans3};
+
+Round4questions = {Q1R4,Q2R4,Q3R4,Q4R4,Q5R4,Q6R4,Q7R4,Q8R4,Q9R4,Q10R4,Q11R4,Q12R4,Q13R4,Q14R4,Q15R4,Q16R4,Q17R4,Q18R4,Q19R4,Q20R4,Q21R4,Q22R4,Q23R4,Q24R4,Q25R4};
+chosenquestionR4 = Round4questions{randi(length(Round4questions))};
+
+Q4=chosenquestionR4(1,1);
+A4=chosenquestionR4(1,2);
+B4=chosenquestionR4(1,3);
+C4=chosenquestionR4(1,4);
+D4=chosenquestionR4(1,5);
+Ans4=chosenquestionR4(1,6);
+
+question4 = {Q4,A4,B4,C4,D4,Ans4};
 global winnings;
 winnings = 1000000;
 global answer
@@ -95,15 +133,13 @@ guidata(hObject, handles);
 global balance
 balance=winnings;
 
-textcell =strcat(Q,',',A,',',B,',',C,',',D,',',Ans);
-n = length(textcell);
-O =strsplit( textcell{randi(n)},',');
-answer = O(1,6);
-set(handles.Q_bar,'String',O(1,1));%displays Q in Q_bar
-set(handles.OptionA,'String',O(1,2));
-set(handles.OptionB,'String',O(1,3));
-set(handles.OptionC,'String',O(1,4));
-set(handles.OptionD,'String',O(1,5));
+answer = Ans1;
+set(handles.Q_bar,'String',Q1);%displays Q in Q_bar
+set(handles.OptionA,'String',A1);
+set(handles.OptionB,'String',B1);
+set(handles.OptionC,'String',C1);
+set(handles.OptionD,'String',D1);
+set(handles.Winnings,'String',num2str(winnings));
 set(handles.over, 'visible', 'off');
 
 
@@ -384,9 +420,6 @@ set(handles.bidC,'String','');
 set(handles.bidD,'String','');
 
 guidata(hObject,handles);
-global winnings;
-global balance;
-balance=winnings;
 
 
 % --- Executes during object creation, after setting all properties.
