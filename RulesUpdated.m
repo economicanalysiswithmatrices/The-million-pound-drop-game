@@ -88,7 +88,7 @@ function returnbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to returnbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-start;
+game;
 
 
 % --- Executes during object creation, after setting all properties.
