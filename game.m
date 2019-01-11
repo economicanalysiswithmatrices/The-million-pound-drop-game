@@ -261,8 +261,10 @@ set(handles.bidD,'String',B4);
 
 guidata(hObject,handles);
 
+end
 
-
+if winnings<=0
+    endscreen;
 end
 
 
