@@ -3,7 +3,7 @@
 %For Round1 and Round2 each question is written in the form of the array 
 %with the question in the first column, then 5 options, A B C D, are in 
 %the columns 2-5,respectively and the last column is the right answer for 
-%each question hi
+%each question
 %%Round1
 Q1R1={'How many Wimbledon titles has Roger Federer won?','A:11','B:8','C:9','D:7','B'};
 Q2R1={'What is the capital city of Australia?','A:Perth','B:Brisbane','C:Canberra','D:Sydney','C'};
