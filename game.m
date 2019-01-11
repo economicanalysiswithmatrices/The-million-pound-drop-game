@@ -22,7 +22,7 @@ function varargout = game(varargin)
 
 % Edit the above text to modify the response to help game
 
-% Last Modified by GUIDE v2.5 11-Jan-2019 14:27:32
+% Last Modified by GUIDE v2.5 11-Jan-2019 15:15:53
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -97,6 +97,7 @@ set(handles.OptionD,'String',D1);
 set(handles.Winnings,'String',num2str(winnings));
 set(handles.over, 'visible', 'off');
 round = 1
+set(handles.round,'String',num2str(round));
 
 
 % Store bids
@@ -200,8 +201,8 @@ sound(y,Fs,16);
 
 
 % --- Executes during object creation, after setting all properties.
-function rounds_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to rounds (see GCBO)
+function round_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to round (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -373,7 +374,10 @@ global round
 
 ListofquestionsMatlab1
 
-if round==3
+if round==4
+    endscreen;
+
+elseif round==3
     Round4questions = {Q1R4,Q2R4,Q3R4,Q4R4,Q5R4,Q6R4,Q7R4,Q8R4,Q9R4,Q10R4,Q11R4,Q12R4,Q13R4,Q14R4,Q15R4,Q16R4,Q17R4,Q18R4,Q19R4,Q20R4,Q21R4,Q22R4,Q23R4,Q24R4,Q25R4};
     chosenquestionR4 = Round4questions{randi(length(Round4questions))};
 
@@ -384,13 +388,15 @@ if round==3
     D4=chosenquestionR4(1,5);
     Ans4=chosenquestionR4(1,6);
     
-    answer = Ans1; 
+    answer = Ans4; 
     set(handles.Q_bar,'String',Q4);%displays Q in Q_bar 
     set(handles.OptionA,'String',A4); 
     set(handles.OptionB,'String',B4); 
     set(handles.OptionC,'String',C4); 
     set(handles.OptionD,'String',D4);  
-    set(handles.over, 'visible', 'off'); 
+    set(handles.over, 'visible', 'off');
+    round = 4
+    set(handles.round,'String',num2str(round));
     
 elseif round==2
     Round3questions = {Q1R3,Q2R3,Q3R3,Q4R3,Q5R3,Q6R3,Q7R3,Q8R3,Q9R3,Q10R3,Q11R3,Q12R3,Q13R3,Q14R3,Q15R3,Q16R3,Q17R3,Q18R3,Q19R3,Q20R3,Q21R3,Q22R3,Q23R3,Q24R3,Q25R3};
@@ -410,6 +416,8 @@ elseif round==2
     set(handles.OptionC,'String',C3); 
     set(handles.OptionD,'String',D3); 
     set(handles.over, 'visible', 'off');
+    round = 3
+    set(handles.round,'String',num2str(round));
     
 elseif round==1
     Round2questions = {Q1R2,Q2R2,Q3R2,Q4R2,Q5R2,Q6R2,Q7R2,Q8R2,Q9R2,Q10R2,Q11R2,Q12R2,Q13R2,Q14R2,Q15R2,Q16R2,Q17R2,Q18R2,Q19R2,Q20R2,Q21R2,Q22R2,Q23R2,Q24R2,Q25R2};
@@ -429,10 +437,11 @@ elseif round==1
     set(handles.OptionC,'String',C2); 
     set(handles.OptionD,'String',D2); 
     set(handles.over, 'visible', 'off');
+    round = 2
+    set(handles.round,'String',num2str(round));
     
 end
 
-game;
 set(handles.bidA,'String','');
 set(handles.bidB,'String','');
 set(handles.bidC,'String','');
