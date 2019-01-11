@@ -78,14 +78,14 @@ function startbutton1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % handles    empty - handles not created until after all CreateFcns called
-ROUND;%starts script ROUND
+game;%starts script ROUND
 
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-rules;%starts RULES
+RulesUpdated;%starts RULES
 
 % --- Executes during object creation, after setting all properties.
 function background_CreateFcn(hObject, eventdata, handles)
