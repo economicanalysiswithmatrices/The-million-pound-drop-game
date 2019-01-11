@@ -22,7 +22,7 @@ function varargout = game(varargin)
 
 % Edit the above text to modify the response to help game
 
-% Last Modified by GUIDE v2.5 10-Jan-2019 20:59:44
+% Last Modified by GUIDE v2.5 11-Jan-2019 20:45:44
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -86,10 +86,7 @@ Ans={'B','C','A','D','A','B','A','B','B','C','A','A','B','A','D','C','D','A','B'
 
 
 questions = {Q,A,B,C,D,Ans};
-global round;
 global winnings;
-global answer;
-round = 1;
 winnings = 1000000;
 
 % Update handles structure
@@ -103,15 +100,12 @@ n = length(textcell);
 O =strsplit( textcell{randi(n)},',');
 
 set(handles.Q_bar,'String',O(1,1));%displays Q in Q_bar
-set(handles.rounds,'String',num2str(round));
 set(handles.OptionA,'String',O(1,2));
 set(handles.OptionB,'String',O(1,3));
 set(handles.OptionC,'String',O(1,4));
 set(handles.OptionD,'String',O(1,5));
-
-set(handles.message, 'visible', 'off');
-set(handles.game_over, 'visible', 'off');
-set(handles.Balance,'string',num2str(balance));
+set(handles.Balance,'String',num2str(balance));
+set(handles.Winnings,'String',num2str(winnings));
 
 
 
@@ -124,22 +118,7 @@ B4 = str2num(char(get(handles.bidD,'String')));
 
 guidata(hObject,handles);
 
-% If edit box is empty set bid = 0 by default
 
-if isempty(B1)
-    B1 = 0;
-end
-if isempty(B2)
-    B2 = 0;
-end
-if isempty(B3)
-    B3 = 0;
-end
-if isempty(B4)
-    B4 = 0;
-end
-
-guidata(hObject,handles);
 
 % UIWAIT makes game wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
@@ -234,10 +213,42 @@ function dropbutton_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 handles.output = hObject;
-set(handles.Answer,'String',O(1,5));
-global round; % keep track of rounds
 global winnings;
-global answer;
+if strcmp(O(1,6), 'A');
+    winnings=B1;
+    B2=0;
+    B3=0;
+    B4=0;
+elseif strcmp(O(1,6), 'B');
+    winnings=B2;
+    B1=0;
+    B3=0;
+    B4=0;
+elseif strcmp(O(1,6), 'C');
+    winnings=B3;
+    B2=0;
+    B1=0;
+    B4=0;
+elseif strcmp(O(1,6), 'D');
+    winnings=B4;
+    B2=0;
+    B3=0;
+    B1=0;
+    
+guidata(hObject,handles);
+
+set(handles.Winnings,'String',(winnings));
+set(handles.bidA,'String',B1);
+set(handles.bidB,'String',B2);
+set(handles.bidC,'String',B3);
+set(handles.bidD,'String',B4);
+
+guidata(hObject,handles);
+
+
+
+end
+
 
 function bidA_Callback(hObject, eventdata, handles)
 % hObject    handle to bidA (see GCBO)
@@ -342,3 +353,17 @@ function Balance_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to Balance (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
+
+
+% --- Executes on button press in next.
+function next_Callback(hObject, eventdata, handles)
+% hObject    handle to next (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+game;
+set(handles.bidA,'String','');
+set(handles.bidB,'String','');
+set(handles.bidC,'String','');
+set(handles.bidD,'String','');
+
+guidata(hObject,handles);
