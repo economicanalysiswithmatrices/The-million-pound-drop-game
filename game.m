@@ -22,7 +22,7 @@ function varargout = game(varargin)
 
 % Edit the above text to modify the response to help game
 
-% Last Modified by GUIDE v2.5 11-Jan-2019 20:45:44
+% Last Modified by GUIDE v2.5 11-Jan-2019 21:29:07
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -72,7 +72,7 @@ varargout{1} = handles.output;
 
 global questions;
 
-Q={'How many Wimbledon titles has Roger Federer won?', 'What is the capital city of Australia?', 'What is the fastest time taken to run 100m?', 'According to forbes who was the highest paid actor as of 2018?', 'In what year did World War II end?', 'On a standard Monopoly board, what is the highest valued square?', 'How many cards in a standard deck of playing cards?', 'In what year did Elvis Presley die?', 'Who scored the goal to win Manchester City the Premier League in 2012?', 'Who is the founder of Facebook?', 'Who is Kanye West married to?', 'Who scored the last ever goal at Upton Park for West Ham?', 'In the show Friends, which character drinks the most cups of coffee?', 'What is the eighth planet from the sun?', 'Who plays the character Howard Wolowitz in The Big Bang Theory?', 'In which year did the Great Depression start?', 'Who was the first prime minister of the United Kingdom?', 'How many golden tickets were there in Charlie and the Chocolate Factory?', 'How many Marvel universe film cameos did Stan Lee make?', 'Which of these Disney films were released earliest?', 'How many medals did Great Britain win at the 2012 Summer Olympics?', 'Which of these twins starred in the show The Suite Life of Zack and Cody?', 'Which of these elements have an Atomic number of 1?', 'What is the home state of Tony Soprano in the show The Sopranos?', 'Who won the first ever edition of Britains Got Talent?'};
+Q={'How many Wimbledon titles has Roger Federer won?', 'What is the capital city of Australia?', 'What is the fastest time taken to run 100m?', 'According to forbes who was the highest paid actor as of 2018?', 'In what year did World War II end?', 'On a standard Monopoly board, what is the highest valued square?', 'How many cards in a standard deck of playing cards?', 'In what year did Elvis Presley die?', 'Who scored the goal to win Manchester City the Premier League in 2012?', 'Who is the founder of Facebook?', 'Who is Kanye West married to?', 'Who scored the last ever goal at Upton Park for West Ham?', 'In the show Friends which character drinks the most cups of coffee?', 'What is the eighth planet from the sun?', 'Who plays the character Howard Wolowitz in The Big Bang Theory?', 'In which year did the Great Depression start?', 'Who was the first prime minister of the United Kingdom?', 'How many golden tickets were there in Charlie and the Chocolate Factory?', 'How many Marvel universe film cameos did Stan Lee make?', 'Which of these Disney films were released earliest?', 'How many medals did Great Britain win at the 2012 Summer Olympics?', 'Which of these twins starred in the show The Suite Life of Zack and Cody?', 'Which of these elements have an Atomic number of 1?', 'What is the home state of Tony Soprano in the show The Sopranos?', 'Who won the first ever edition of Britains Got Talent?'};
 %cell for questions
 A={'A:11', 'A:Perth', 'A:9.58 seconds', 'A:Dwayne Johnson', 'A:1945', 'A:Park Lane', 'A:52', 'A:1979', 'A:Edin Dzeko', 'A:Bill Gates', 'A:Kim Kardashian', 'A:Winston Reid', 'A:Ross', 'A:Neptune', 'A:Kevin Sussman ', 'A:1943', 'A:Henry Palham', 'A:5', 'A:22', 'A:Aladdin', 'A:72', 'A:Dolan twins', 'A:Gold', 'A:New York', 'A:George Sampson'};
 %cell for option A
@@ -88,8 +88,8 @@ Ans={'B','C','A','D','A','B','A','B','B','C','A','A','B','A','D','C','D','A','B'
 questions = {Q,A,B,C,D,Ans};
 global winnings;
 winnings = 1000000;
+global answer
 
-% Update handles structure
 guidata(hObject, handles);
 
 global balance
@@ -98,15 +98,14 @@ balance=winnings;
 textcell =strcat(Q,',',A,',',B,',',C,',',D,',',Ans);
 n = length(textcell);
 O =strsplit( textcell{randi(n)},',');
-
+answer = O(1,6);
 set(handles.Q_bar,'String',O(1,1));%displays Q in Q_bar
 set(handles.OptionA,'String',O(1,2));
 set(handles.OptionB,'String',O(1,3));
 set(handles.OptionC,'String',O(1,4));
 set(handles.OptionD,'String',O(1,5));
 set(handles.Balance,'String',num2str(balance));
-set(handles.Winnings,'String',num2str(winnings));
-
+set(handles.over, 'visible', 'off');
 
 
 % Store bids
@@ -117,9 +116,19 @@ B3 = str2num(char(get(handles.bidC,'String')));
 B4 = str2num(char(get(handles.bidD,'String')));
 
 guidata(hObject,handles);
-
-
-
+if isempty(B1)
+    B1 = 0;
+end
+if isempty(B2)
+    B2 = 0;
+end
+if isempty(B3)
+    B3 = 0;
+end
+if isempty(B4)
+    B4 = 0;
+end
+guidata(hObject,handles);
 % UIWAIT makes game wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
@@ -214,30 +223,45 @@ function dropbutton_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 handles.output = hObject;
 global winnings;
-if strcmp(O(1,6), 'A');
-    winnings=B1;
-    B2=0;
-    B3=0;
-    B4=0;
-elseif strcmp(O(1,6), 'B');
-    winnings=B2;
-    B1=0;
-    B3=0;
-    B4=0;
-elseif strcmp(O(1,6), 'C');
-    winnings=B3;
-    B2=0;
-    B1=0;
-    B4=0;
-elseif strcmp(O(1,6), 'D');
-    winnings=B4;
-    B2=0;
-    B3=0;
-    B1=0;
-    
-guidata(hObject,handles);
+% Store bids
 
-set(handles.Winnings,'String',(winnings));
+B1 = str2num(char(get(handles.bidA,'String')));
+B2 = str2num(char(get(handles.bidB,'String')));
+B3 = str2num(char(get(handles.bidC,'String')));
+B4 = str2num(char(get(handles.bidD,'String')));
+
+if isempty(B1)
+    B1 = 0;
+end
+if isempty(B2)
+    B2 = 0;
+end
+if isempty(B3)
+    B3 = 0;
+end
+if isempty(B4)
+    B4 = 0;
+end
+guidata(hObject,handles);
+if winnings==0
+    set(handles.over, 'visible', 'on');
+end
+global answer;
+if strcmp(answer, 'A')    
+    winnings=B1;
+
+elseif strcmp(answer, 'B')
+    winnings=B2
+   
+elseif strcmp(answer, 'C')
+    winnings=B3
+   
+elseif strcmp(answer, 'D')
+    winnings=B4
+   
+    
+
+set(handles.Winnings,'String',num2str(winnings));
 set(handles.bidA,'String',B1);
 set(handles.bidB,'String',B2);
 set(handles.bidC,'String',B3);
@@ -367,3 +391,13 @@ set(handles.bidC,'String','');
 set(handles.bidD,'String','');
 
 guidata(hObject,handles);
+global winnings;
+global balance;
+balance=winnings;
+
+
+% --- Executes during object creation, after setting all properties.
+function over_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to over (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
