@@ -22,7 +22,7 @@ function varargout = start(varargin)
 
 % Edit the above text to modify the response to help start
 
-% Last Modified by GUIDE v2.5 14-Dec-2018 08:18:15
+% Last Modified by GUIDE v2.5 11-Jan-2019 16:41:41
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -72,9 +72,9 @@ function varargout = start_OutputFcn(hObject, eventdata, handles)
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 
-% --- Executes on button press in background.
+% --- Executes on button press in background1.
 function startbutton1_Callback(hObject, eventdata, handles)
-% hObject    handle to background (see GCBO)
+% hObject    handle to background1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % handles    empty - handles not created until after all CreateFcns called
@@ -88,14 +88,14 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 RulesUpdated;%starts RULES
 
 % --- Executes during object creation, after setting all properties.
-function background_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to background (see GCBO)
+function background1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to background1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
-% Hint: place code in OpeningFcn to populate background
+% Hint: place code in OpeningFcn to populate background1
 axes(hObject)
-imshow('drop.jpg')
+imshow('QuestionScreen.png')
 
 % --- Executes during object creation, after setting all properties.
 function playbutton1_CreateFcn(hObject, eventdata, handles)
