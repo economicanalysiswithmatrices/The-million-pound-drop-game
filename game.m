@@ -251,8 +251,6 @@ elseif strcmp(answer, 'C')
 elseif strcmp(answer, 'D')
     winnings=B4
    
-    
-
 set(handles.Winnings,'String',num2str(winnings));
 set(handles.bidA,'String',B1);
 set(handles.bidB,'String',B2);
