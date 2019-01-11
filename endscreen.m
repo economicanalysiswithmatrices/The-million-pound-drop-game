@@ -22,7 +22,7 @@ function varargout = endscreen(varargin)
 
 % Edit the above text to modify the response to help endscreen
 
-% Last Modified by GUIDE v2.5 11-Jan-2019 13:27:59
+% Last Modified by GUIDE v2.5 11-Jan-2019 16:55:36
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -61,6 +61,15 @@ guidata(hObject, handles);
 % UIWAIT makes endscreen wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
+global winnings;
+if winnings == 100 
+   fprintf('Value is %f \n' , winnings); 
+   else 
+   fprintf('Value is NOT %f \n' , winnings);
+   end 
+set(handles.winnings,'String',num2str(winnings));
+guidata(hObject,handles);
+
 
 % --- Outputs from this function are returned to the command line.
 function varargout = endscreen_OutputFcn(hObject, eventdata, handles) 
@@ -71,3 +80,18 @@ function varargout = endscreen_OutputFcn(hObject, eventdata, handles)
 
 % Get default command line output from handles structure
 varargout{1} = handles.output;
+
+
+% --- Executes during object creation, after setting all properties.
+function winnings_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to winnings (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+
+% --- Executes on button press in back.
+function back_Callback(hObject, eventdata, handles)
+% hObject    handle to back (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+start;
