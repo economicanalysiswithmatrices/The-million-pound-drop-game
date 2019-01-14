@@ -1,7 +1,7 @@
 %Questions for each round in the game
-%There are 7 rounds and 25 questions in each round
+%There are 4 rounds and 25 questions in each round
 %For Round1 and Round2 each question is written in the form of the array 
-%with the question in the first column, then 5 options, A B C D, are in 
+%with the question in the first column, then 4 options, A B C D, are in 
 %the columns 2-5,respectively and the last column is the right answer for 
 %each question
 %%Round1
